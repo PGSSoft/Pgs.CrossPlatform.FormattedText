@@ -3,3 +3,14 @@
 ################################################################################
 
 /packages
+/Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText/bin/Debug
+/Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText/obj/Debug
+/Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText.Droid/bin/Debug
+/Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText.Droid/obj/Debug
+/Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText.iOS/obj/iPhone/Debug
+/Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText.UWP/obj/x86/Debug
+*.pfx
+/Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText.Windows/obj/Debug
+/Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText.WinPhone/obj/Debug
+/Pgs.CrossPlatform.FormattedText.Core/bin/Debug
+/Pgs.CrossPlatform.FormattedText.Core/obj/Debug

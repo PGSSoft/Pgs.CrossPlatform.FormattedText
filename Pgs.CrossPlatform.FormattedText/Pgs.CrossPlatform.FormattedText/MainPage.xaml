@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Pgs.CrossPlatform.FormattedText"
+             x:Class="Pgs.CrossPlatform.FormattedText.MainPage">
+
+  <local:FormattedText Text="Welcome [i]W[b]elc[/b]om[b]e[/b][/i] [b]t[i]o[/i][/b] [b][i]Xama[/i]rin[/b] [b][i]Forms[/i][/b]!"
+           VerticalOptions="Center"
+           HorizontalOptions="Center"
+           FontSize="25"/>
+
+</ContentPage>
