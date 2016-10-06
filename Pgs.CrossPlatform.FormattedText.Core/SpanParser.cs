@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Android;
+using System;
 using System.Collections.Generic;
 
 namespace Pgs.CrossPlatform.FormattedText.Core
@@ -86,7 +87,7 @@ namespace Pgs.CrossPlatform.FormattedText.Core
                 throw new InvalidOperationException("SpanParser must be initialized before using!");
 
             var styleParams = new HashSet<StyleParameters>();
-            
+
             InnerParser.Parse(styleParams, ref text, TagStartChar, TagEndChar);
 
             var spannableString = (OutT)Activator.CreateInstance(typeof(OutT), text);
