@@ -39,9 +39,9 @@
     <Compile Include="ExpressionGenerator.cs" />
     <Compile Include="InnerParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SpanParser.cs" />
-    <Compile Include="SpanTag.cs" />
-    <Compile Include="StyleParameters.cs" />
+    <Compile Include="FormatParser.cs" />
+    <Compile Include="FormatTag.cs" />
+    <Compile Include="FormatParameters.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Mono.Android">

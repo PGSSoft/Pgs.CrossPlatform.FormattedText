@@ -1,6 +1,6 @@
 ﻿namespace Pgs.CrossPlatform.FormattedText.Core
 {
-    internal class StyleParameters
+    internal class FormatParameters
     {
         public string Tag { get; set; }
         
@@ -8,7 +8,7 @@
 
         public int Length { get; set; }
 
-        public StyleParameters(string tag, int startI, int length)
+        public FormatParameters(string tag, int startI, int length)
         {
             Tag = tag;
             StartIndex = startI;

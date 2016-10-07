@@ -7,20 +7,20 @@ namespace Pgs.CrossPlatform.FormattedText.Core
     /// <summary>
     /// Entry class to SpanParserGenerator - this class is singleton - call its instance by Instance property
     /// </summary>
-    public sealed class SpanParser
+    public sealed class FormatParser
     {
-        private SpanParser() { }
+        private FormatParser() { }
 
-        static SpanParser() { }
+        static FormatParser() { }
 
-        private static readonly SpanParser _instance = new SpanParser();
+        private static readonly FormatParser _instance = new FormatParser();
         /// <summary>
         /// Gets the instance.
         /// </summary>
         /// <value>
         /// The instance.
         /// </value>
-        public static SpanParser Instance => _instance;
+        public static FormatParser Instance => _instance;
 
         private bool _isInitialized = false;
                 
@@ -47,7 +47,7 @@ namespace Pgs.CrossPlatform.FormattedText.Core
         /// <param name="spansConfig">List of SpanTag - config for parser generator to generate specific parser</param>
         /// <param name="tagStartChar">The tag start character.</param>
         /// <param name="tagEndChar">The tag end character.</param>
-        public void Initalize(IEnumerable<SpanTag> spansConfig, char tagStartChar = '<', char tagEndChar = '>')
+        public void Initalize(IEnumerable<FormatTag> spansConfig, char tagStartChar = '<', char tagEndChar = '>')
         {
             ExpressionGenerator = new ExpressionGenerator<string, int>();
 
@@ -86,7 +86,7 @@ namespace Pgs.CrossPlatform.FormattedText.Core
             if (!_isInitialized)
                 throw new InvalidOperationException("SpanParser must be initialized before using!");
 
-            var styleParams = new HashSet<StyleParameters>();
+            var styleParams = new HashSet<FormatParameters>();
 
             InnerParser.Parse(styleParams, ref text, TagStartChar, TagEndChar);
 
