@@ -32,7 +32,7 @@ namespace Pgs.CrossPlatform.FormattedText.Core
         /// </summary>
         /// <param name="tag">The tag name.</param>
         /// <param name="stylingMethod">The styling method.</param>
-        /// <exception cref="System.ArgumentNullException">MethodInfo cannot be null!</exception>
+        /// <exception cref="System.ArgumentNullException">StylingMethod cannot be null!</exception>
         public FormatTag(string tag, TagStylingMethod stylingMethod)
         {
             // TODO: it's not necessary but need to test if it does some additional problems without it; commented as it can be performance hit during Parser initialization
@@ -41,7 +41,7 @@ namespace Pgs.CrossPlatform.FormattedText.Core
             //    throw new ArgumentException($"Tag must be alphanumeric and not empty. Given: {tag}");
 
             if (stylingMethod == null)
-                throw new ArgumentNullException("MethodInfo cannot be null!");
+                throw new ArgumentNullException("StylingMethod cannot be null!");
 
             Tag = tag;
             this.MethodToCall = stylingMethod.GetMethodInfo(); 

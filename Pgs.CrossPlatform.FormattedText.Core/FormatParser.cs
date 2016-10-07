@@ -80,11 +80,11 @@ namespace Pgs.CrossPlatform.FormattedText.Core
         /// <returns>
         /// Specific object of formated text
         /// </returns>
-        /// <exception cref="System.InvalidOperationException">SpanParser must be initialized before using!</exception>
+        /// <exception cref="System.InvalidOperationException">FormatParser must be initialized before using!</exception>
         public OutT Parse<OutT>(string text) /* where OutT : IGetChars, ISpannable // TODO: when iOS support will be added, change that constrain?! */
         {
             if (!_isInitialized)
-                throw new InvalidOperationException("SpanParser must be initialized before using!");
+                throw new InvalidOperationException("FormatParser must be initialized before using!");
 
             var styleParams = new HashSet<FormatParameters>();
 

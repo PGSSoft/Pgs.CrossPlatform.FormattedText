@@ -1,3 +1,4 @@
+#if !_NuGetRelease_
 using System.Collections.Generic;
 using Android.Graphics;
 using System.Threading.Tasks;
@@ -36,3 +37,4 @@ namespace Pgs.CrossPlatform.FormattedText.Droid
 
     }
 }
+#endif
