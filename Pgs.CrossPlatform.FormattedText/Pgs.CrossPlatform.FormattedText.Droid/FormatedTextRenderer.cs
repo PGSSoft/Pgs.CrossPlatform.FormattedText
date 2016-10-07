@@ -11,7 +11,7 @@ using Pgs.CrossPlatform.FormattedText;
 using Pgs.CrossPlatform.FormattedText.Core;
 using Pgs.CrossPlatform.FormattedText.Droid;
 
-[assembly: ExportRenderer(typeof(FormattedText), typeof(FormatedTextRenderer))]
+[assembly: ExportRenderer(typeof(FormattedLabel), typeof(FormatedTextRenderer))]
 namespace Pgs.CrossPlatform.FormattedText.Droid
 {
     public class FormatedTextRenderer : LabelRenderer
