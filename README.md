@@ -7,6 +7,7 @@ https://www.nuget.org/packages/Pgs.CrossPlatform.FormattedText/
 How to use(applied mainly to .Libs):
   * add to MainActivity.cs at the very start of OnCreate:
 ```C#
+// TOP OF OnCreate
 FormatConfig.Init('[', ']'); // class name will be changed probably  
 ```
   * adjust config in FormatConfig.cs
