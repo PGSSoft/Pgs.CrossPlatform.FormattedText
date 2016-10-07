@@ -6,58 +6,45 @@ namespace Pgs.CrossPlatform.FormattedText.Core
     {
         internal static void Parse(HashSet<StyleParameters> styleParameters, ref string text, char tagStartChar = '<', char tagEndChar = '>')
         {
-            Node tree = new Node();
-
             int ignoreIt = 0;
             for (int i = 0; i < text.Length; i++)
             {
-                var subNode = RecursiveParse(ref text, ref i, ref ignoreIt, tagStartChar, tagEndChar, true);
+                var subNode = RecursiveParse(styleParameters, ref text, ref i, ref ignoreIt, tagStartChar, tagEndChar, true);
 
                 if(subNode != null)
-                    tree.SubNodes.Add(subNode);
+                    styleParameters.Add(subNode);
             }
-
-            TreeToListRecursive(tree, styleParameters);
             styleParameters.RemoveWhere(x => x == null);
         }
 
-        internal static void TreeToListRecursive(Node node, HashSet<StyleParameters> styleParameters)
+        internal static StyleParameters RecursiveParse(HashSet<StyleParameters> styleParameters, ref string text, ref int i, ref int removedTagsLength, char tagStartChar, char tagEndChar, bool isFirstIteration = false)
         {
-            styleParameters.Add(node.StyleParameter);
-            foreach (var subNode in node.SubNodes)
-            {
-                TreeToListRecursive(subNode, styleParameters);
-            }
-        }
+            var currentStyleParam = CheckCharIsBeginningTag(ref text, ref i, ref removedTagsLength, tagStartChar, tagEndChar);
 
-        internal static Node RecursiveParse(ref string text, ref int i, ref int removedTagsLength, char tagStartChar, char tagEndChar, bool isFirstIteration = false)
-        {
-            var node = CheckCharIsBeginningTag(ref text, ref i, ref removedTagsLength, tagStartChar, tagEndChar);
-
-            if (node != null)
+            if (currentStyleParam != null)
             {
                 var startI = i;
                 var innerRemovedTagsLenght = 0;
 
                 while (true)
                 {
-                    var innerNode = RecursiveParse(ref text, ref i, ref innerRemovedTagsLenght, tagStartChar, tagEndChar);
+                    var innerNode = RecursiveParse(styleParameters, ref text, ref i, ref innerRemovedTagsLenght, tagStartChar, tagEndChar);
                     if (innerNode != null)
                     {
-                        node.SubNodes.Add(innerNode);
+                        styleParameters.Add(innerNode);
                     }
                     else if (CheckCharIsEndingTag(ref text, ref i, ref removedTagsLength, tagStartChar, tagEndChar))
                     {
                         if (isFirstIteration)
                         {
-                            node.StyleParameter.Length = i - startI;
+                            currentStyleParam.Length = i - startI;
                         }
                         else
                         {
-                            node.StyleParameter.Length = i - startI + innerRemovedTagsLenght;
+                            currentStyleParam.Length = i - startI + innerRemovedTagsLenght;
                         }
                         removedTagsLength += innerRemovedTagsLenght;
-                        return node;
+                        return currentStyleParam;
                     }
                     else
                     {
@@ -65,7 +52,7 @@ namespace Pgs.CrossPlatform.FormattedText.Core
                     }
                 }
             }
-            return node;
+            return currentStyleParam;
         }
 
         internal static bool CheckCharIsEndingTag(ref string text, ref int i, ref int removedTagsLength, char tagStartChar, char tagEndChar)
@@ -78,13 +65,13 @@ namespace Pgs.CrossPlatform.FormattedText.Core
             return false;
         }
 
-        internal static Node CheckCharIsBeginningTag(ref string text, ref int i, ref int removedTagsLength, char tagStartChar, char tagEndChar)
+        internal static StyleParameters CheckCharIsBeginningTag(ref string text, ref int i, ref int removedTagsLength, char tagStartChar, char tagEndChar)
         {
             if (text[i] == tagStartChar && text[i + 1] != '/')
             {
-                var node = new Node(new StyleParameters(GetTagName(text, i, tagEndChar), i, 0));
+                var styleParam = new StyleParameters(GetTagName(text, i, tagEndChar), i, 0);
                 removedTagsLength += RemoveTag(ref i, ref text, tagEndChar);
-                return node;
+                return styleParam;
             }
             return null;
         }
