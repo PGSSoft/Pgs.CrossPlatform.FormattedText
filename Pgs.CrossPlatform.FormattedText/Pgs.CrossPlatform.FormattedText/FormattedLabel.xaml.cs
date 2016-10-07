@@ -2,9 +2,9 @@
 
 namespace Pgs.CrossPlatform.FormattedText
 {
-    public partial class FormattedText : Label
+    public partial class FormattedLabel : Label
     {
-        public FormattedText()
+        public FormattedLabel()
         {
             InitializeComponent();
         }

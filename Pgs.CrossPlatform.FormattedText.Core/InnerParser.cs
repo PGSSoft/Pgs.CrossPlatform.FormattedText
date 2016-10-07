@@ -63,7 +63,6 @@ namespace Pgs.CrossPlatform.FormattedText.Core
                     {
                         i++;
                     }
-
                 }
             }
             return node;
