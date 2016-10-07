@@ -12,8 +12,9 @@ namespace Pgs.CrossPlatform.FormattedText.Droid
         
         protected override void OnCreate(Bundle bundle)
         {
+#if !_NuGetRelease_
             FormatConfig.Init('[', ']'); // comment when building for NuGet
-
+#endif
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 

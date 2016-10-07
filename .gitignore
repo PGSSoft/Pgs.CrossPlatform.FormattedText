@@ -33,3 +33,13 @@
 /Pgs.CrossPlatform.FormattedText.1.0.2.nupkg
 /Pgs.CrossPlatform.FormattedText.1.0.3.nupkg
 *.nupkg
+/Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText/bin/NuGetRelease
+/Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText/obj/NuGetRelease
+/Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText.Droid/bin/NuGetRelease
+/Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText.Droid/obj/NuGetRelease
+/Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText.UWP/obj/x86/NuGetRelease
+/Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText.iOS/obj/iPhone/NuGetRelease
+/Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText.Windows/obj/NuGetRelease
+/Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText.WinPhone/obj/NuGetRelease
+/Pgs.CrossPlatform.FormattedText.Core/bin/NuGetRelease
+/Pgs.CrossPlatform.FormattedText.Core/obj/NuGetRelease
