@@ -12,7 +12,7 @@ namespace Pgs.CrossPlatform.FormattedText.Droid
         
         protected override void OnCreate(Bundle bundle)
         {
-            new ParserGeneratorConfig().Init('[', ']');
+            FormatConfig.Init('[', ']'); // comment when building for NuGet
 
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;

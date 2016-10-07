@@ -7,18 +7,15 @@ using Pgs.CrossPlatform.FormattedText.Core;
 
 namespace Pgs.CrossPlatform.FormattedText.Droid
 {
-    public class ParserGeneratorConfig
+    public static class FormatConfig
     {
-        /// <summary>
-        /// When overriding, call base at very end of this method
-        /// </summary>
-        public virtual async void Init(char tagStartChar = '<', char tagEndChar = '>')
+        public static void Init(char tagStartChar = '<', char tagEndChar = '>')
         {
             var t = new Task(() =>
             {
-                SpanParser.Instance.Initalize(new List<SpanTag>() {
-                    new SpanTag("b", B),
-                    new SpanTag("i", I)
+                FormatParser.Instance.Initalize(new List<FormatTag>() {
+                    new FormatTag("b", B), // first arg: tag name ex. <b>something</b>, where "b" is name
+                    new FormatTag("i", I)  // second arg: tag method
                 }, tagStartChar, tagEndChar);
             });
             t.Start();
@@ -26,10 +23,10 @@ namespace Pgs.CrossPlatform.FormattedText.Droid
 
         public static void B(object obj, int i1, int i2)
         {
-           // Typeface font = Typeface.CreateFromAsset(Forms.Context.ApplicationContext.Assets, "Fonts/SCRIPTIN.ttf");
+            // Typeface font = Typeface.CreateFromAsset(Forms.Context.ApplicationContext.Assets, "Fonts/FontName.ttf");
             // First use Bold than apply custom font! - only way to make it work
             ((SpannableStringBuilder)obj).SetSpan(new TextAppearanceSpan("", TypefaceStyle.Bold, -1, null, null), i1, i2, SpanTypes.ExclusiveInclusive);
-           // ((SpannableStringBuilder)obj).SetSpan(new CustomTypefaceSpan("SCRIPTIN", font), i1, i2, SpanTypes.ExclusiveInclusive);
+            // ((SpannableStringBuilder)obj).SetSpan(new CustomTypefaceSpan("FontName", font), i1, i2, SpanTypes.ExclusiveInclusive);
         }
 
         public static void I(object obj, int i1, int i2)

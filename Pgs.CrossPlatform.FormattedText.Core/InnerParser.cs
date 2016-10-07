@@ -4,7 +4,7 @@ namespace Pgs.CrossPlatform.FormattedText.Core
 {
     internal static class InnerParser
     {
-        internal static void Parse(HashSet<StyleParameters> styleParameters, ref string text, char tagStartChar = '<', char tagEndChar = '>')
+        internal static void Parse(HashSet<FormatParameters> styleParameters, ref string text, char tagStartChar = '<', char tagEndChar = '>')
         {
             int ignoreIt = 0;
             for (int i = 0; i < text.Length; i++)
@@ -17,7 +17,7 @@ namespace Pgs.CrossPlatform.FormattedText.Core
             styleParameters.RemoveWhere(x => x == null);
         }
 
-        internal static StyleParameters RecursiveParse(HashSet<StyleParameters> styleParameters, ref string text, ref int i, ref int removedTagsLength, char tagStartChar, char tagEndChar, bool isFirstIteration = false)
+        internal static FormatParameters RecursiveParse(HashSet<FormatParameters> styleParameters, ref string text, ref int i, ref int removedTagsLength, char tagStartChar, char tagEndChar, bool isFirstIteration = false)
         {
             var currentStyleParam = CheckCharIsBeginningTag(ref text, ref i, ref removedTagsLength, tagStartChar, tagEndChar);
 
@@ -65,11 +65,11 @@ namespace Pgs.CrossPlatform.FormattedText.Core
             return false;
         }
 
-        internal static StyleParameters CheckCharIsBeginningTag(ref string text, ref int i, ref int removedTagsLength, char tagStartChar, char tagEndChar)
+        internal static FormatParameters CheckCharIsBeginningTag(ref string text, ref int i, ref int removedTagsLength, char tagStartChar, char tagEndChar)
         {
             if (text[i] == tagStartChar && text[i + 1] != '/')
             {
-                var styleParam = new StyleParameters(GetTagName(text, i, tagEndChar), i, 0);
+                var styleParam = new FormatParameters(GetTagName(text, i, tagEndChar), i, 0);
                 removedTagsLength += RemoveTag(ref i, ref text, tagEndChar);
                 return styleParam;
             }
@@ -103,11 +103,11 @@ namespace Pgs.CrossPlatform.FormattedText.Core
 
         internal class Node
         {
-            public StyleParameters StyleParameter { get; private set; }
+            public FormatParameters StyleParameter { get; private set; }
 
             public List<Node> SubNodes { get; set; } = new List<Node>();
 
-            public Node(StyleParameters styleParamter)
+            public Node(FormatParameters styleParamter)
             {
                 StyleParameter = styleParamter;
             }

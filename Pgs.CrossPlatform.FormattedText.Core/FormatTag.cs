@@ -14,7 +14,7 @@ namespace Pgs.CrossPlatform.FormattedText.Core
     /// <summary>
     /// Model for passing each tag config to SpanParser
     /// </summary>
-    public class SpanTag
+    public class FormatTag
     {
         /// <summary>
         /// Tag name
@@ -27,13 +27,13 @@ namespace Pgs.CrossPlatform.FormattedText.Core
         public readonly MethodInfo MethodToCall;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SpanTag"/> class.
+        /// Initializes a new instance of the <see cref="FormatTag"/> class.
         /// Assigns tag name to method that apply that styling
         /// </summary>
         /// <param name="tag">The tag name.</param>
         /// <param name="stylingMethod">The styling method.</param>
         /// <exception cref="System.ArgumentNullException">MethodInfo cannot be null!</exception>
-        public SpanTag(string tag, TagStylingMethod stylingMethod)
+        public FormatTag(string tag, TagStylingMethod stylingMethod)
         {
             // TODO: it's not necessary but need to test if it does some additional problems without it; commented as it can be performance hit during Parser initialization
             //Regex r = new Regex("^[a-zA-Z0-9]*$");

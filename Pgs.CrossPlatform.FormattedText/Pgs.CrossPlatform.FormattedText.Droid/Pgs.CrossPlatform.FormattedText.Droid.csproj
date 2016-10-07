@@ -129,7 +129,7 @@
   <ItemGroup>
     <Compile Include="FormatedTextRenderer.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="ParserGeneratorConfig.cs" />
+    <Compile Include="FormatConfig.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
