@@ -15,7 +15,7 @@ FormatConfig.Init('[', ']'); // class name will be changed probably
 ```C#
 xmlns:ft="clr-namespace:Pgs.CrossPlatform.FormattedText;assembly=Pgs.CrossPlatform.FormattedText" // namespace
 // later in content
-    <ft:FormattedLabel Text="zzzzzzzzzzzWelcome [i]W[b]elc[/b]om[b]e[/b][/i] [b]t[i]o[/i][/b] [b][i]Xama[/i]rin[/b] [b][i]Forms[/i][/b]!"
+    <ft:FormattedLabel Text="Welcome [i]W[b]elc[/b]om[b]e[/b][/i] [b]t[i]o[/i][/b] [b][i]Xama[/i]rin[/b] [b][i]Forms[/i][/b]!"
              x:Name="formated"
              VerticalOptions="Center"
              HorizontalOptions="Center" />
