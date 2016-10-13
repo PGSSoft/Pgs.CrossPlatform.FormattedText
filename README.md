@@ -8,7 +8,7 @@ How to use(applied mainly to .Libs):
   * add to MainActivity.cs at the very start of OnCreate:
 ```C#
 // TOP OF OnCreate
-FormatConfig.Init('[', ']'); // class name will be changed probably  
+FormatConfig.Init('[', ']');
 ```
   * adjust config in FormatConfig.cs
   * use control within xaml like:
