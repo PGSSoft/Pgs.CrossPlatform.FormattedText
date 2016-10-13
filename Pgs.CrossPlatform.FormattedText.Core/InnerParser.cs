@@ -20,6 +20,7 @@ namespace Pgs.CrossPlatform.FormattedText.Core
             text = stringBuilder.ToString();
         }
 
+        private static int _recursiveLvl = 0;
         internal static FormatParameters RecursiveParse(HashSet<FormatParameters> styleParameters, StringBuilder text, ref int i, ref int removedTagsLength, char tagStartChar, char tagEndChar, bool isFirstIteration = false)
         {
             if (i >= text.Length)
@@ -32,6 +33,7 @@ namespace Pgs.CrossPlatform.FormattedText.Core
 
             var startI = i;
             var innerRemovedTagsLenght = 0;
+            _recursiveLvl++;
 
             while (true)
             {
@@ -48,9 +50,10 @@ namespace Pgs.CrossPlatform.FormattedText.Core
                     }
                     else
                     {
-                        currentStyleParam.Length = i - startI + innerRemovedTagsLenght;
+                        currentStyleParam.Length = i - startI + (_recursiveLvl > 1 ? 0 : innerRemovedTagsLenght);
                     }
                     removedTagsLength += innerRemovedTagsLenght;
+                    _recursiveLvl--;
                     return currentStyleParam;
                 }
                 else

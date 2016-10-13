@@ -46,3 +46,4 @@
 /Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText.Windows/bin/NuGetRelease
 /Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText.WinPhone/bin/NuGetRelease
 /UpgradeLog.htm
+*.bak
