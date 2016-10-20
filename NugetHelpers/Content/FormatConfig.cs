@@ -48,6 +48,6 @@ public static class FormatConfig
 
     public static void H5(object obj, int i1, int i2) => ((SpannableStringBuilder)obj).SetSpan(new TextAppearanceSpan("", TypefaceStyle.Bold, 40, null, null), i1, i2, SpanTypes.ExclusiveInclusive);
 
-    public static void H6(object obj, int i1, int i2) => ((SpannableStringBuilder)obj).SetSpan(new TextAppearanceSpan("", TypefaceStyle.Bold, 25, null, null), i1, i2, SpanTypes.ExclusiveInclusive);
+    public static void H6(object obj, int i1, int i2) => ((SpannableStringBuilder)obj).SetSpan(new TextAppearanceSpan("", TypefaceStyle.Bold, 30, null, null), i1, i2, SpanTypes.ExclusiveInclusive);
 
 }
