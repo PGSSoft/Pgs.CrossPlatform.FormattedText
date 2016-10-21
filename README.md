@@ -7,9 +7,10 @@ NuGet:
 https://www.nuget.org/packages/Pgs.CrossPlatform.FormattedText/
 
 How to use(applied mainly to .Libs):
-  * add to MainActivity.cs at the very start of OnCreate:
+  * Droid: add to MainActivity.cs at the very start of OnCreate:
+    iOS: add to Main.cs at the very start of Main:
 ```C#
-// TOP OF OnCreate
+// TOP OF OnCreate/Main
 FormatConfig.Init(true, '[', ']'); // shoudl throw exceptions is config is lacking and chars that starts and ends tag
 ```
   * adjust config in FormatConfig.cs
