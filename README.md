@@ -1,6 +1,8 @@
 # Pgs.CrossPlatform.FormattedText
 Cross Platform C# Xamarin Formatted Text Label control enabling to add own tags [b][/b] or similar to HTML tags &lt;b>&lt;b>&lt;H1>&lt;/H2>  to format text in any size and font
 
+Android and iOS are currently supported
+
 NuGet:
 https://www.nuget.org/packages/Pgs.CrossPlatform.FormattedText/
 
@@ -8,7 +10,7 @@ How to use(applied mainly to .Libs):
   * add to MainActivity.cs at the very start of OnCreate:
 ```C#
 // TOP OF OnCreate
-FormatConfig.Init('[', ']'); // chars that starts and ends tag
+FormatConfig.Init(true, '[', ']'); // shoudl throw exceptions is config is lacking and chars that starts and ends tag
 ```
   * adjust config in FormatConfig.cs
   * use control within xaml like:
