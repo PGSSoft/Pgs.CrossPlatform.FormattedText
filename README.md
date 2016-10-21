@@ -8,7 +8,7 @@ How to use(applied mainly to .Libs):
   * add to MainActivity.cs at the very start of OnCreate:
 ```C#
 // TOP OF OnCreate
-FormatConfig.Init('[', ']'); // chars that starts and ends tag
+FormatConfig.Init(true, '[', ']'); // shoudl throw exceptions is config is lacking and chars that starts and ends tag
 ```
   * adjust config in FormatConfig.cs
   * use control within xaml like:
