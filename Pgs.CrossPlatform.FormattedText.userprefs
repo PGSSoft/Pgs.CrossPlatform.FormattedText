@@ -1,0 +1,21 @@
+﻿<Properties StartupConfiguration="{82C46155-BB56-4B7F-96A3-F7D76F2905CE}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText.Droid/FormattedLabelRenderer.cs">
+    <Files>
+      <File FileName="Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText.iOS/FormattedLabelRenderer.cs" Line="16" Column="8" />
+      <File FileName="Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText.iOS/Main.cs" Line="8" Column="46" />
+      <File FileName="Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText.Droid/MainActivity.cs" Line="15" Column="1" />
+      <File FileName="Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText.iOS/FormatConfig.cs" Line="19" Column="79" />
+      <File FileName="Pgs.CrossPlatform.FormattedText.Core/FormatParser.cs" Line="86" Column="31" />
+      <File FileName="Pgs.CrossPlatform.FormattedText.Core/FormatTag.cs" Line="12" Column="42" />
+      <File FileName="Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText.Droid/FormatConfig.cs" Line="44" Column="31" />
+      <File FileName="Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText.Droid/FormattedLabelRenderer.cs" Line="33" Column="91" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Pgs.CrossPlatform.FormattedText.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.295E72B4-C8C3-4C70-BCF9-53FE511829A4" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Pgs.CrossPlatform.FormattedText.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
+</Properties>

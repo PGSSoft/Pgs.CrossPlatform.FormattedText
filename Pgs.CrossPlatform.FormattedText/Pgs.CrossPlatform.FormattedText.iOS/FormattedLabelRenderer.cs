@@ -1,4 +1,6 @@
-﻿using Pgs.CrossPlatform.FormattedText;
+﻿using Foundation;
+using Pgs.CrossPlatform.FormattedText;
+using Pgs.CrossPlatform.FormattedText.Core;
 using Pgs.CrossPlatform.FormattedText.iOS;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
@@ -11,7 +13,7 @@ namespace Pgs.CrossPlatform.FormattedText.iOS
         protected override void OnElementChanged(ElementChangedEventArgs<Label> e)
         {
             base.OnElementChanged(e);
-            
+			Control.AttributedText = FormatParser.Instance.Parse<NSMutableAttributedString>(Control.Text, Control);
         }
     }
 }

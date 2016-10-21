@@ -1,5 +1,4 @@
-﻿using Android;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -84,7 +83,7 @@ namespace Pgs.CrossPlatform.FormattedText.Core
         /// Specific object of formated text
         /// </returns>
         /// <exception cref="System.InvalidOperationException">FormatParser must be initialized before using!</exception>
-        public OutT Parse<OutT>(string text)
+        public OutT Parse<OutT>(string text, object sourceControl)
         {
             if (!_isInitialized)
                 throw new InvalidOperationException("FormatParser must be initialized before using!");
@@ -101,7 +100,7 @@ namespace Pgs.CrossPlatform.FormattedText.Core
                 var endIndex = styleParam.StartIndex + styleParam.Length;
                 try
                 {
-                    FormatConfig[styleParam.Tag].Invoke(spannableString, styleParam.StartIndex, endIndex);
+                    FormatConfig[styleParam.Tag].Invoke(spannableString, sourceControl, styleParam.StartIndex, endIndex);
                 }
                 catch (KeyNotFoundException)
                 {

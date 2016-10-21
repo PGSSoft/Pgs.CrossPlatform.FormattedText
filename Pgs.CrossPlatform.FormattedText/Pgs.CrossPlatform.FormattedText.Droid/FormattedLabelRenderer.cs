@@ -30,7 +30,7 @@ namespace Pgs.CrossPlatform.FormattedText.Droid
                 _isInitialized = true;
                               
                 Control.SetText(
-                    FormatParser.Instance.Parse<SpannableStringBuilder>(Control.Text), 
+					FormatParser.Instance.Parse<SpannableStringBuilder>(Control.Text, Control), 
                     TextView.BufferType.Spannable);
             }
         }
