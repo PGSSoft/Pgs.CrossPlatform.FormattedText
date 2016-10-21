@@ -47,3 +47,5 @@
 /Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText.WinPhone/bin/NuGetRelease
 /UpgradeLog.htm
 *.bak
+/Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText.iOS/bin/iPhoneSimulator/Release
+/Pgs.CrossPlatform.FormattedText/Pgs.CrossPlatform.FormattedText.iOS/obj/iPhoneSimulator/Release

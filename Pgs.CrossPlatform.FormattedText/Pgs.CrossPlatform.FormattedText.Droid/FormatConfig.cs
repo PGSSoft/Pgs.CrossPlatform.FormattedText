@@ -10,11 +10,9 @@ namespace Pgs.CrossPlatform.FormattedText.Droid
 {
     public static class FormatConfig
     {
-        public static void Init(char tagStartChar = '<', char tagEndChar = '>')
+        public static void Init(bool throwOnConfigLackchar, char tagStartChar = '<', char tagEndChar = '>')
         {
-            var t = new Task(() =>
-            {
-                FormatParser.Instance.Initalize(new List<FormatTag>() {
+            FormatParser.Instance.Initalize(new List<FormatTag>() {
                 new FormatTag("b", B), // first arg: tag name ex. <b>something</b>, where "b" is name
 				new FormatTag("i", I),  // second arg: tag method
 				new FormatTag("u", U),
@@ -24,9 +22,7 @@ namespace Pgs.CrossPlatform.FormattedText.Droid
                 new FormatTag("h4", H4),
                 new FormatTag("h5", H5),
                 new FormatTag("h6", H6),
-            }, tagStartChar, tagEndChar);
-            });
-            t.Start();
+            }, throwOnConfigLackchar, tagStartChar, tagEndChar);
         }
 
         public static void B(object obj, int i1, int i2)

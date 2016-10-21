@@ -24,7 +24,7 @@ namespace Pgs.CrossPlatform.FormattedText.Core
         /// <summary>
         /// The method to call when this tag is requested
         /// </summary>
-        public readonly MethodInfo MethodToCall;
+        public readonly TagStylingMethod MethodToCall;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FormatTag"/> class.
@@ -44,7 +44,7 @@ namespace Pgs.CrossPlatform.FormattedText.Core
                 throw new ArgumentNullException("StylingMethod cannot be null!");
 
             Tag = tag;
-            this.MethodToCall = stylingMethod.GetMethodInfo(); 
+            MethodToCall = stylingMethod; 
         }
     }
 }
