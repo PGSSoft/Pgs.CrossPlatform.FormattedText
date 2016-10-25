@@ -6,7 +6,6 @@ Android and iOS are currently supported
 NuGet:
 https://www.nuget.org/packages/Pgs.CrossPlatform.FormattedText/
 
-How to use(applied mainly to .Libs):
   * Droid: add to MainActivity.cs at the very start of OnCreate:
     iOS: add to Main.cs at the very start of Main:
 ```C#
