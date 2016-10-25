@@ -16,10 +16,11 @@ FormatConfig.Init(true, '[', ']'); // shoudl throw exceptions is config is lacki
   * adjust config in FormatConfig.cs
   * use control within xaml like:
 ```C#
-xmlns:ft="clr-namespace:Pgs.CrossPlatform.FormattedText;assembly=Pgs.CrossPlatform.FormattedText" // namespace
+// namespace
+    xmlns:ft="clr-namespace:Pgs.CrossPlatform.FormattedText;assembly=Pgs.CrossPlatform.FormattedText" 
 // later in content
     <ft:FormattedLabel Text="Welcome [i]W[b]elc[/b]om[b]e[/b][/i] [b]t[i]o[/i][/b] [b][i]Xama[/i]rin[/b] [b][i]Forms[/i][/b]!"
-             x:Name="formated"
-             VerticalOptions="Center"
-             HorizontalOptions="Center" />
+        x:Name="formated"
+        VerticalOptions="Center"
+        HorizontalOptions="Center" />
 ```  
