@@ -11,7 +11,8 @@ https://www.nuget.org/packages/Pgs.CrossPlatform.FormattedText/
     iOS: add to Main.cs at the very start of Main:
 ```C#
 // TOP OF OnCreate/Main
-FormatConfig.Init(true, '[', ']'); // shoudl throw exceptions is config is lacking and chars that starts and ends tag
+// first param determines whether throw exception if specific tag is lacking
+FormatConfig.Init(true, '[', ']'); 
 ```
   * adjust config in FormatConfig.cs
   * use control within xaml like:
