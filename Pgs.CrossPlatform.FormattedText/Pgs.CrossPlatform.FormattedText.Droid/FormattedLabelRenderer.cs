@@ -11,10 +11,10 @@ using Pgs.CrossPlatform.FormattedText;
 using Pgs.CrossPlatform.FormattedText.Core;
 using Pgs.CrossPlatform.FormattedText.Droid;
 
-[assembly: ExportRenderer(typeof(FormattedLabel), typeof(FormatedTextRenderer))]
+[assembly: ExportRenderer(typeof(FormattedLabel), typeof(FormattedLabelRenderer))]
 namespace Pgs.CrossPlatform.FormattedText.Droid
 {
-    public class FormatedTextRenderer : LabelRenderer
+    public class FormattedLabelRenderer : LabelRenderer
     {
         private bool _isInitialized = false;
 
@@ -30,7 +30,7 @@ namespace Pgs.CrossPlatform.FormattedText.Droid
                 _isInitialized = true;
                               
                 Control.SetText(
-                    FormatParser.Instance.Parse<SpannableStringBuilder>(Control.Text), 
+					FormatParser.Instance.Parse<SpannableStringBuilder>(Control.Text, Control), 
                     TextView.BufferType.Spannable);
             }
         }

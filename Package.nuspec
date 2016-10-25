@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Pgs.CrossPlatform.FormattedText</id>
+        <version>2.0.0.6</version>
+        <title>Pgs.CrossPlatform.FormattedText</title>
+        <authors>PGS SOFTWARE S.A.</authors>
+        <owners>PGS SOFTWARE S.A.</owners>
+        <licenseUrl>https://github.com/PGSSoft/Pgs.CrossPlatform.FormattedText/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/PGSSoft/Pgs.CrossPlatform.FormattedText</projectUrl>
+        <iconUrl>https://avatars1.githubusercontent.com/u/9190490?v=3&amp;s=200</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Enchanted label for Xamarin.Forms which allows you to style text within single label, using user-defined tags(ex. HTML-style tags).</description>
+        <summary>Enchanted label for Xamarin.Forms which allows you to style text within single label, using user-defined tags(ex. HTML-style tags).</summary>
+        <releaseNotes>- Android and iOS support,
+- Expressions are not used anymore</releaseNotes>
+        <copyright>PGS SOFTWARE S.A.</copyright>
+        <language>en-GB</language>
+        <tags>Xamarin, Xamarin.Form, Xamarin.Android, C#, .NET</tags>
+    </metadata>
+	<files>
+		<!-- Content -->
+		<file src="NugetHelpers\Content\Droid\FormatConfig.cs.pp" target="content\MonoAndroid10"/>
+		<file src="NugetHelpers\Content\iOS\FormatConfig.cs.pp" target="content\Xamarin.iOS10"/>
+		<file src="NugetHelpers\Content\iOS\FormattedLabelRenderer.cs.pp" target="content\Xamarin.iOS10"/>
+		<!-- Portable --> 
+		<file src="Pgs.CrossPlatform.FormattedText.Core\bin\NuGetRelease\Pgs.CrossPlatform.FormattedText.Core.dll" target="lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10"/>
+		<file src="Pgs.CrossPlatform.FormattedText\Pgs.CrossPlatform.FormattedText\bin\NuGetRelease\Pgs.CrossPlatform.FormattedText.dll" target="lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10"/>
+		<!-- Android -->
+		<file src="Pgs.CrossPlatform.FormattedText\Pgs.CrossPlatform.FormattedText.Droid\bin\NuGetRelease\Pgs.CrossPlatform.FormattedText.Core.dll" target="lib\MonoAndroid10"/>
+		<file src="Pgs.CrossPlatform.FormattedText\Pgs.CrossPlatform.FormattedText.Droid\bin\NuGetRelease\Pgs.CrossPlatform.FormattedText.dll" target="lib\MonoAndroid10"/>
+		<file src="Pgs.CrossPlatform.FormattedText\Pgs.CrossPlatform.FormattedText.Droid\bin\NuGetRelease\Pgs.CrossPlatform.FormattedText.Droid.dll" target="lib\MonoAndroid10"/>
+    </files>
+</package>

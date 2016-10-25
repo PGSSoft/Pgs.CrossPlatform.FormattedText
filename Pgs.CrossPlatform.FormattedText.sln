@@ -228,7 +228,9 @@ Global
 		{82C46155-BB56-4B7F-96A3-F7D76F2905CE}.NuGetRelease|Any CPU.ActiveCfg = NuGetRelease|iPhone
 		{82C46155-BB56-4B7F-96A3-F7D76F2905CE}.NuGetRelease|ARM.ActiveCfg = NuGetRelease|iPhone
 		{82C46155-BB56-4B7F-96A3-F7D76F2905CE}.NuGetRelease|iPhone.ActiveCfg = NuGetRelease|iPhone
+		{82C46155-BB56-4B7F-96A3-F7D76F2905CE}.NuGetRelease|iPhone.Build.0 = NuGetRelease|iPhone
 		{82C46155-BB56-4B7F-96A3-F7D76F2905CE}.NuGetRelease|iPhoneSimulator.ActiveCfg = NuGetRelease|iPhoneSimulator
+		{82C46155-BB56-4B7F-96A3-F7D76F2905CE}.NuGetRelease|iPhoneSimulator.Build.0 = NuGetRelease|iPhoneSimulator
 		{82C46155-BB56-4B7F-96A3-F7D76F2905CE}.NuGetRelease|x64.ActiveCfg = NuGetRelease|iPhone
 		{82C46155-BB56-4B7F-96A3-F7D76F2905CE}.NuGetRelease|x86.ActiveCfg = NuGetRelease|iPhone
 		{82C46155-BB56-4B7F-96A3-F7D76F2905CE}.Release|Any CPU.ActiveCfg = Release|iPhone
@@ -300,8 +302,6 @@ Global
 		{F5686421-A0F3-4410-AC55-F5F9C24983BE}.NuGetRelease|ARM.Build.0 = NuGetRelease|ARM
 		{F5686421-A0F3-4410-AC55-F5F9C24983BE}.NuGetRelease|ARM.Deploy.0 = NuGetRelease|ARM
 		{F5686421-A0F3-4410-AC55-F5F9C24983BE}.NuGetRelease|iPhone.ActiveCfg = NuGetRelease|Any CPU
-		{F5686421-A0F3-4410-AC55-F5F9C24983BE}.NuGetRelease|iPhone.Build.0 = NuGetRelease|Any CPU
-		{F5686421-A0F3-4410-AC55-F5F9C24983BE}.NuGetRelease|iPhone.Deploy.0 = NuGetRelease|Any CPU
 		{F5686421-A0F3-4410-AC55-F5F9C24983BE}.NuGetRelease|iPhoneSimulator.ActiveCfg = NuGetRelease|Any CPU
 		{F5686421-A0F3-4410-AC55-F5F9C24983BE}.NuGetRelease|iPhoneSimulator.Build.0 = NuGetRelease|Any CPU
 		{F5686421-A0F3-4410-AC55-F5F9C24983BE}.NuGetRelease|iPhoneSimulator.Deploy.0 = NuGetRelease|Any CPU
@@ -459,8 +459,6 @@ Global
 		{ACE3BA83-4F5B-4A24-A61C-7001A7EFB976}.NuGetRelease|ARM.Build.0 = NuGetRelease|ARM
 		{ACE3BA83-4F5B-4A24-A61C-7001A7EFB976}.NuGetRelease|ARM.Deploy.0 = NuGetRelease|ARM
 		{ACE3BA83-4F5B-4A24-A61C-7001A7EFB976}.NuGetRelease|iPhone.ActiveCfg = NuGetRelease|Any CPU
-		{ACE3BA83-4F5B-4A24-A61C-7001A7EFB976}.NuGetRelease|iPhone.Build.0 = NuGetRelease|Any CPU
-		{ACE3BA83-4F5B-4A24-A61C-7001A7EFB976}.NuGetRelease|iPhone.Deploy.0 = NuGetRelease|Any CPU
 		{ACE3BA83-4F5B-4A24-A61C-7001A7EFB976}.NuGetRelease|iPhoneSimulator.ActiveCfg = NuGetRelease|Any CPU
 		{ACE3BA83-4F5B-4A24-A61C-7001A7EFB976}.NuGetRelease|iPhoneSimulator.Build.0 = NuGetRelease|Any CPU
 		{ACE3BA83-4F5B-4A24-A61C-7001A7EFB976}.NuGetRelease|iPhoneSimulator.Deploy.0 = NuGetRelease|Any CPU

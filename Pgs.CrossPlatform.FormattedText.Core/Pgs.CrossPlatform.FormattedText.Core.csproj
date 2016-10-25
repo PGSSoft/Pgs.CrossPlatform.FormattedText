@@ -45,7 +45,6 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ExpressionGenerator.cs" />
     <Compile Include="InnerParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FormatParser.cs" />

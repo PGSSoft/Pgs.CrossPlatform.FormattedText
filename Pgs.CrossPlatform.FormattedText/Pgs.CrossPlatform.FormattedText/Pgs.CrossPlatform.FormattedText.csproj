@@ -71,7 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="FormattedLabel.xaml">
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

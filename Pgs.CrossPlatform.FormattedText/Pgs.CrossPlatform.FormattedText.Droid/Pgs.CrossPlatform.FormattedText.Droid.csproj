@@ -124,7 +124,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormatedTextRenderer.cs" />
+    <Compile Include="FormattedLabelRenderer.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="FormatConfig.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

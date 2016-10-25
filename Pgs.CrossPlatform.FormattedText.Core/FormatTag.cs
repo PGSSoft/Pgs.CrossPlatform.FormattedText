@@ -9,7 +9,7 @@ namespace Pgs.CrossPlatform.FormattedText.Core
     /// <param name="obj">The object of type provide as OutT in Parse method in SpanParser.</param>
     /// <param name="i1">The formating start index in object's text.</param>
     /// <param name="i2">The formating end index in object's text.</param>
-    public delegate void TagStylingMethod(object obj, int i1, int i2);
+    public delegate void TagStylingMethod(object obj, object sourceControl, int i1, int i2);
 
     /// <summary>
     /// Model for passing each tag config to SpanParser
@@ -24,7 +24,7 @@ namespace Pgs.CrossPlatform.FormattedText.Core
         /// <summary>
         /// The method to call when this tag is requested
         /// </summary>
-        public readonly MethodInfo MethodToCall;
+        public readonly TagStylingMethod MethodToCall;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FormatTag"/> class.
@@ -44,7 +44,7 @@ namespace Pgs.CrossPlatform.FormattedText.Core
                 throw new ArgumentNullException("StylingMethod cannot be null!");
 
             Tag = tag;
-            this.MethodToCall = stylingMethod.GetMethodInfo(); 
+            MethodToCall = stylingMethod; 
         }
     }
 }

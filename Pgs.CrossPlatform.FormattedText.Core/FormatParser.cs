@@ -1,6 +1,6 @@
-﻿using Android;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Pgs.CrossPlatform.FormattedText.Core
 {
@@ -23,8 +23,10 @@ namespace Pgs.CrossPlatform.FormattedText.Core
         public static FormatParser Instance => _instance;
 
         private bool _isInitialized = false;
-                
-        private ExpressionGenerator<string, int> ExpressionGenerator = new ExpressionGenerator<string, int>();
+
+        private bool _throwOnConfigLack = true;
+
+        public readonly Dictionary<string, TagStylingMethod> FormatConfig = new Dictionary<string, TagStylingMethod>();
 
         /// <summary>
         /// Gets or sets the tag start character.
@@ -45,29 +47,29 @@ namespace Pgs.CrossPlatform.FormattedText.Core
         /// Generates parser from given config.
         /// </summary>
         /// <param name="spansConfig">List of SpanTag - config for parser generator to generate specific parser</param>
+        /// <param name="throwOnConfigLack">if set to <c>true</c> [throw exception on configuration lack].</param>
         /// <param name="tagStartChar">The tag start character.</param>
         /// <param name="tagEndChar">The tag end character.</param>
-        public void Initalize(IEnumerable<FormatTag> spansConfig, char tagStartChar = '<', char tagEndChar = '>')
+        public void Initalize(IEnumerable<FormatTag> spansConfig, bool throwOnConfigLack, char tagStartChar = '<', char tagEndChar = '>')
         {
-            ExpressionGenerator = new ExpressionGenerator<string, int>();
-
-            try
+            foreach (var spanTag in spansConfig)
             {
-                foreach (var spanTag in spansConfig)
+                try
                 {
-                    ExpressionGenerator.AddCase(spanTag.Tag, spanTag.MethodToCall);
+                    FormatConfig.Add(spanTag.Tag, spanTag.MethodToCall);
                 }
-            }
-            catch (Exception ex)
-            {
-                var zz = ex.Message;
+                catch (Exception ex)
+                {
+#if DEBUG
+                    Debugger.Break();
+#endif
+                    throw;
+                }
             }
 
             TagStartChar = tagStartChar;
             TagEndChar = tagEndChar;
-
-            ExpressionGenerator.Generate();
-
+            _throwOnConfigLack = throwOnConfigLack;
             _isInitialized = true;
         }
 
@@ -81,7 +83,7 @@ namespace Pgs.CrossPlatform.FormattedText.Core
         /// Specific object of formated text
         /// </returns>
         /// <exception cref="System.InvalidOperationException">FormatParser must be initialized before using!</exception>
-        public OutT Parse<OutT>(string text) /* where OutT : IGetChars, ISpannable // TODO: when iOS support will be added, change that constrain?! */
+        public OutT Parse<OutT>(string text, object sourceControl)
         {
             if (!_isInitialized)
                 throw new InvalidOperationException("FormatParser must be initialized before using!");
@@ -95,7 +97,16 @@ namespace Pgs.CrossPlatform.FormattedText.Core
             foreach (var styleParam in styleParams)
             {
                 // Apply styles
-                ExpressionGenerator.Compiled.Invoke(styleParam.Tag, spannableString, styleParam.StartIndex, styleParam.StartIndex + styleParam.Length);
+                var endIndex = styleParam.StartIndex + styleParam.Length;
+                try
+                {
+                    FormatConfig[styleParam.Tag].Invoke(spannableString, sourceControl, styleParam.StartIndex, endIndex);
+                }
+                catch (KeyNotFoundException)
+                {
+                    if (_throwOnConfigLack)
+                        throw new ArgumentOutOfRangeException($"Could not find config for tag: {styleParam.Tag}");
+                }
             }
             return spannableString;
         }
