@@ -2,7 +2,25 @@
 <ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ArrayOfArrayOfString>
     <ArrayOfString>
-      <string>D:\FormattedLabel\Pgs.CrossPlatform.FormattedText\Package.nuspec</string>
+      <string>d:\pgs.crossplatform.formattedtext\pgs.crossplatform.formattedtext\pgs.crossplatform.formattedtext.ios\main.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>d:\pgs.crossplatform.formattedtext\pgs.crossplatform.formattedtext\pgs.crossplatform.formattedtext\mainpage.xaml</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>d:\pgs.crossplatform.formattedtext\pgs.crossplatform.formattedtext\pgs.crossplatform.formattedtext\app.xaml.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>d:\pgs.crossplatform.formattedtext\pgs.crossplatform.formattedtext\pgs.crossplatform.formattedtext.ios\formatconfig.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>d:\pgs.crossplatform.formattedtext\pgs.crossplatform.formattedtext\pgs.crossplatform.formattedtext.ios\formattedlabelrenderer.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>d:\pgs.crossplatform.formattedtext\pgs.crossplatform.formattedtext.core\formatparser.cs</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>D:\Pgs.CrossPlatform.FormattedText\Pgs.CrossPlatform.FormattedText.Core\InnerParser.cs</string>
     </ArrayOfString>
   </ArrayOfArrayOfString>
 </ArrayOfArrayOfArrayOfString>
