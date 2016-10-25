@@ -7,6 +7,7 @@ NuGet:
 https://www.nuget.org/packages/Pgs.CrossPlatform.FormattedText/
 
   * Droid: add to MainActivity.cs at the very start of OnCreate:
+  
     iOS: add to Main.cs at the very start of Main:
 ```C#
 // TOP OF OnCreate/Main
