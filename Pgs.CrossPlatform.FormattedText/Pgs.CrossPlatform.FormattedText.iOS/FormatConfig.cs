@@ -1,5 +1,7 @@
 #if !_NuGetRelease_
 using System.Collections.Generic;
+using System.Linq;
+using CoreText;
 using Foundation;
 using Pgs.CrossPlatform.FormattedText.Core;
 using UIKit;
@@ -18,12 +20,49 @@ namespace Pgs.CrossPlatform.FormattedText.iOS
 
         public static void B(object obj, object sourceControl, int i1, int i2)
         {
-			((NSMutableAttributedString)obj).SetAttributes(new UIStringAttributes { Font = UIFont.BoldSystemFontOfSize(((UILabel)sourceControl).Font.PointSize + 1), ForegroundColor = UIColor.Black }, new NSRange(i1, i2-i1));
-		}
+            ApplyFontStyle(obj, sourceControl, i1, i2, UIFontDescriptorSymbolicTraits.Bold);
+        }
+
+        private static void ApplyFontStyle(object obj, object sourceControl, int i1, int i2, UIFontDescriptorSymbolicTraits traitsToApply)
+        {
+            var mutableStr = ((NSMutableAttributedString) obj);
+
+            var existingRange = new NSRange(i1, i2 - i1);
+            var existingAttributes = mutableStr.GetAttributes(i1, out existingRange);
+
+            if (existingAttributes.Any() && existingRange.Equals(new NSRange(i1, i2 - i1)))
+            {
+                foreach (var attribute in existingAttributes)
+                {
+                    if (attribute.Key.Equals(UIStringAttributeKey.Font))
+                    {
+                        var value = (UIFont) attribute.Value;
+                        var traits = value.FontDescriptor.Traits;
+
+                        if (traits.SymbolicTrait != null)
+                            mutableStr.AddAttribute(UIStringAttributeKey.Font,
+                                CustomizeFont(sourceControl, traits.SymbolicTrait.Value | traitsToApply),
+                                new NSRange(i1, i2 - i1));
+                    }
+                }
+            }
+            else
+            {
+                mutableStr.AddAttribute(UIStringAttributeKey.Font,
+                    CustomizeFont(sourceControl, traitsToApply), new NSRange(i1, i2 - i1));
+            }
+        }
 
         public static void I(object obj, object sourceControl, int i1, int i2)
         {
-            ((NSMutableAttributedString)obj).SetAttributes(new UIStringAttributes { Font = UIFont.ItalicSystemFontOfSize(((UILabel)sourceControl).Font.PointSize + 1) }, new NSRange(i1, i2 - i1));
+            ApplyFontStyle(obj, sourceControl, i1, i2, UIFontDescriptorSymbolicTraits.Italic);
+        }
+
+        private static UIFont CustomizeFont(object srcControl, UIFontDescriptorSymbolicTraits attr)
+        {
+            var control = (UILabel)srcControl;
+            var font = UIFont.FromDescriptor(control.Font.FontDescriptor.CreateWithTraits(attr), control.Font.PointSize);
+            return font;
         }
 
     }

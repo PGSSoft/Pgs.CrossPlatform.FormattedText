@@ -11,16 +11,13 @@
       <string>d:\pgs.crossplatform.formattedtext\pgs.crossplatform.formattedtext\pgs.crossplatform.formattedtext\app.xaml.cs</string>
     </ArrayOfString>
     <ArrayOfString>
-      <string>d:\pgs.crossplatform.formattedtext\pgs.crossplatform.formattedtext\pgs.crossplatform.formattedtext.ios\formatconfig.cs</string>
+      <string>D:\Pgs.CrossPlatform.FormattedText\Pgs.CrossPlatform.FormattedText\Pgs.CrossPlatform.FormattedText.iOS\FormatConfig.cs</string>
     </ArrayOfString>
     <ArrayOfString>
       <string>d:\pgs.crossplatform.formattedtext\pgs.crossplatform.formattedtext\pgs.crossplatform.formattedtext.ios\formattedlabelrenderer.cs</string>
     </ArrayOfString>
     <ArrayOfString>
       <string>d:\pgs.crossplatform.formattedtext\pgs.crossplatform.formattedtext.core\formatparser.cs</string>
-    </ArrayOfString>
-    <ArrayOfString>
-      <string>D:\Pgs.CrossPlatform.FormattedText\Pgs.CrossPlatform.FormattedText.Core\InnerParser.cs</string>
     </ArrayOfString>
   </ArrayOfArrayOfString>
 </ArrayOfArrayOfArrayOfString>
