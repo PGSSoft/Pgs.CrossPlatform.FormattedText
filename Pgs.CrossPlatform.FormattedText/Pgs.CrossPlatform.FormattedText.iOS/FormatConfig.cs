@@ -34,7 +34,12 @@ namespace Pgs.CrossPlatform.FormattedText.iOS
 
             var mutaStr = (NSMutableAttributedString) obj;
             var control = configs["sourceControl"];
-
+            
+            var traits = UIFontDescriptorSymbolicTraits.ClassUnknown;
+            if (configs.TryGetValue("b", out toSkipAllTheseOuts))
+                traits = UIFontDescriptorSymbolicTraits.Bold;
+            if (configs.TryGetValue("i", out toSkipAllTheseOuts))
+                traits = traits | UIFontDescriptorSymbolicTraits.Italic;
 
             if (configs.TryGetValue("backGreen", out toSkipAllTheseOuts))
                 mutaStr.AddAttribute(UIStringAttributeKey.BackgroundColor, (UIColor)configs["backGreen"], new NSRange(i1, i2));
@@ -42,12 +47,6 @@ namespace Pgs.CrossPlatform.FormattedText.iOS
             if (configs.TryGetValue("?", out toSkipAllTheseOuts))
                 mutaStr.AddAttribute(UIStringAttributeKey.ForegroundColor, (UIColor)configs["?"], new NSRange(i1, i2));
 
-            var traits = UIFontDescriptorSymbolicTraits.ClassUnknown;
-            if (configs.TryGetValue("b", out toSkipAllTheseOuts))
-                traits = UIFontDescriptorSymbolicTraits.Bold;
-            if (configs.TryGetValue("i", out toSkipAllTheseOuts))
-                traits = traits | UIFontDescriptorSymbolicTraits.Italic;
-            
             var font = UIFont.FromDescriptor(((UILabel)control).Font.FontDescriptor.CreateWithTraits(traits), ((UILabel)control).Font.PointSize);
             
             mutaStr.AddAttribute(UIStringAttributeKey.Font, font, new NSRange(i1, i2));

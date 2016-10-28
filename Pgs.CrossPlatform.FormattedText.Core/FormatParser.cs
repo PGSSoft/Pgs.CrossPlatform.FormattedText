@@ -137,10 +137,8 @@ namespace Pgs.CrossPlatform.FormattedText.Core
             {
                 var current = sorted.ElementAt(i);
 
-                var firstItemOfNextRange = sorted.FirstOrDefault(x => x.StartIndex > current.StartIndex + current.Length);
-                if (firstItemOfNextRange == null)
-                    continue;
-                var currentRange = sorted.Where(x => x.StartIndex >= current.StartIndex && x.StartIndex < firstItemOfNextRange.StartIndex).ToList();
+                var startIndexOfFirstItemOfNextRange = sorted.FirstOrDefault(x => x.StartIndex > current.StartIndex + current.Length)?.StartIndex ?? Int32.MaxValue ;
+                var currentRange = sorted.Where(x => x.StartIndex >= current.StartIndex && x.StartIndex < startIndexOfFirstItemOfNextRange).ToList();
 
                 if (currentRange.All(x => x == current))
                 {
@@ -155,6 +153,8 @@ namespace Pgs.CrossPlatform.FormattedText.Core
                     }
                     continue;
                 }
+
+                i += currentRange.Count - 1;
 
                 var sections = new List<FormatParameters>();
                 var lastFormatersState = new List<bool>(currentRange.Select(x => false));
@@ -172,12 +172,11 @@ namespace Pgs.CrossPlatform.FormattedText.Core
                             isNewSection = true;
                         }
                     }
-
                     currentSectionLength = CreateNewSection(sourceControl, spannableString, isNewSection, sections, currentSectionLength, lastFormatersState, currentRange, current, j);
                     currentSectionLength++;
                 }
                 sections.Last().Length = currentSectionLength;
-                SectionApplyStyle(sourceControl, spannableString, sections, currentSectionLength);
+                SectionApplyStyle(sourceControl, spannableString, sections);
             }
         }
 
@@ -188,10 +187,11 @@ namespace Pgs.CrossPlatform.FormattedText.Core
             {
                 if (sections.Any())
                 {
-                    SectionApplyStyle(sourceControl, spannableString, sections, currentSectionLength);
-#if DEBUG
+//#if DEBUG
                     sections.Last().Length = currentSectionLength;
-#endif
+//#endif
+                   // SectionApplyStyle(sourceControl, spannableString, sections, currentSectionLength);
+
                     currentSectionLength = 0;
                 }
 
@@ -206,16 +206,19 @@ namespace Pgs.CrossPlatform.FormattedText.Core
             }
             return currentSectionLength;
         }
-
-        private void SectionApplyStyle<OutT>(object sourceControl, OutT spannableString, List<FormatParameters> sections, int currentSectionLength)
+        
+        private void SectionApplyStyle<OutT>(object sourceControl, OutT spannableString, List<FormatParameters> sections)
         {
             try
             {
-                var sectionStylesDictionary = _sectionedConfig.Keys.Intersect(sections.Last().SrcStyles).ToDictionary(k => k, k => _sectionedConfig[k]);
-                sectionStylesDictionary.Add("sourceControl", sourceControl);
+                foreach (var currentSection in sections)
+                {
+                    var sectionStylesDictionary = _sectionedConfig.Keys.Intersect(currentSection.SrcStyles).ToDictionary(k => k, k => _sectionedConfig[k]);
+                    sectionStylesDictionary.Add("sourceControl", sourceControl);
 
-                FormatConfig["InterStyle"].Invoke(spannableString, sectionStylesDictionary, sections.Last().StartIndex,
-                    currentSectionLength);
+                    FormatConfig["InterStyle"].Invoke(spannableString, sectionStylesDictionary, currentSection.StartIndex, currentSection.Length);
+                }
+                // var currentSection = sections.Last();
             }
             catch (KeyNotFoundException ex)
             {
