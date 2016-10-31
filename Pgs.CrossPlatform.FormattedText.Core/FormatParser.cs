@@ -144,7 +144,7 @@ namespace Pgs.CrossPlatform.FormattedText.Core
                 {
                     try
                     {
-                        FormatConfig[current.Tag].Invoke(spannableString, sourceControl, current.StartIndex, current.Length);
+                        FormatConfig["InterStyle"].Invoke(spannableString, new Dictionary<string, object>() { { "sourceControl", sourceControl } }, current.StartIndex, current.Length);
                     }
                     catch (KeyNotFoundException)
                     {
@@ -172,7 +172,7 @@ namespace Pgs.CrossPlatform.FormattedText.Core
                             isNewSection = true;
                         }
                     }
-                    currentSectionLength = CreateNewSection(sourceControl, spannableString, isNewSection, sections, currentSectionLength, lastFormatersState, currentRange, current, j);
+                    currentSectionLength = CreateNewSection(isNewSection, sections, currentSectionLength, lastFormatersState, currentRange, current, j);
                     currentSectionLength++;
                 }
                 sections.Last().Length = currentSectionLength;
@@ -180,18 +180,13 @@ namespace Pgs.CrossPlatform.FormattedText.Core
             }
         }
 
-        private int CreateNewSection<OutT>(object sourceControl, OutT spannableString, bool isNewSection, List<FormatParameters> sections,
-            int currentSectionLength, List<bool> lastFormatersState, List<FormatParameters> currentRange, FormatParameters current, int j)
+        private int CreateNewSection(bool isNewSection, List<FormatParameters> sections, int currentSectionLength, List<bool> lastFormatersState, List<FormatParameters> currentRange, FormatParameters current, int j)
         {
             if (isNewSection)
             {
                 if (sections.Any())
                 {
-//#if DEBUG
                     sections.Last().Length = currentSectionLength;
-//#endif
-                   // SectionApplyStyle(sourceControl, spannableString, sections, currentSectionLength);
-
                     currentSectionLength = 0;
                 }
 
