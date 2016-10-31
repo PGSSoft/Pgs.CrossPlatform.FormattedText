@@ -1,4 +1,5 @@
 ﻿using UIKit;
+using Pgs.CrossPlatform.FormattedText.iOS;
 
 namespace Pgs.CrossPlatform.FormattedText.iOS
 {

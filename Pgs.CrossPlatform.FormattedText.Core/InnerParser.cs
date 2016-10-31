@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Pgs.CrossPlatform.FormattedText.Core
@@ -9,7 +10,7 @@ namespace Pgs.CrossPlatform.FormattedText.Core
         {
             int ignoreIt = 0;
             var stringBuilder = new StringBuilder(text);
-            for (int i = 0; i < text.Length; i++)
+            for (int i = 0; i < stringBuilder.Length; i++)
             {
                 var subNode = RecursiveParse(styleParameters, stringBuilder, ref i, ref ignoreIt, tagStartChar, tagEndChar, true);
 
@@ -24,7 +25,9 @@ namespace Pgs.CrossPlatform.FormattedText.Core
         internal static FormatParameters RecursiveParse(HashSet<FormatParameters> styleParameters, StringBuilder text, ref int i, ref int removedTagsLength, char tagStartChar, char tagEndChar, bool isFirstIteration = false)
         {
             if (i >= text.Length)
+            {
                 return null;
+            }
 
             var currentStyleParam = CheckCharIsBeginningTag(text, ref i, ref removedTagsLength, tagStartChar, tagEndChar);
 
@@ -58,9 +61,14 @@ namespace Pgs.CrossPlatform.FormattedText.Core
                 }
                 else
                 {
+                    if (i >= text.Length)
+                    {
+                        break;
+                    }
                     i++;
                 }
             }
+            return null;
         }
 
         internal static bool CheckCharIsEndingTag(StringBuilder text, ref int i, ref int removedTagsLength, char tagStartChar, char tagEndChar)

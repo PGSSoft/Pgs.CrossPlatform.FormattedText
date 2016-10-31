@@ -14,7 +14,7 @@ https://www.nuget.org/packages/Pgs.CrossPlatform.FormattedText/
 // first param determines whether throw exception if specific tag is lacking
 FormatConfig.Init(true, '[', ']'); 
 ```
-  * adjust config in FormatConfig.cs
+  * adjust config in FormatConfig.cs - for iOS you must keep given if-style pattern to make nesting work properly
   * use control within xaml like:
 ```C#
 // namespace
