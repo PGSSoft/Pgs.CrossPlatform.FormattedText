@@ -13,7 +13,7 @@ How to use(applied mainly to .Libs):
 // TOP OF OnCreate/Main
 FormatConfig.Init(true, '[', ']'); // shoudl throw exceptions is config is lacking and chars that starts and ends tag
 ```
-  * adjust config in FormatConfig.cs
+  * adjust config in FormatConfig.cs - for iOS you must keep given if-style pattern to make nesting work properly
   * use control within xaml like:
 ```C#
 // namespace
