@@ -55,6 +55,7 @@ namespace Pgs.CrossPlatform.FormattedText.Core
                     {
                         currentStyleParam.Length = i - startI + (_recursiveLvl > 1 ? 0 : innerRemovedTagsLenght);
                     }
+                    --i;
                     removedTagsLength += innerRemovedTagsLenght;
                     _recursiveLvl--;
                     return currentStyleParam;
